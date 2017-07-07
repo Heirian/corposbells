@@ -3,7 +3,7 @@
  * version: 2.1.5 (Fri, 14 Jun 2013)
  * @requires jQuery v1.6 or later
  *
- * Examples at http://fancyapps.com/fancybox/
+ * Examples at https://fancyapps.com/fancybox/
  * License: www.fancyapps.com/fancybox/#license
  *
  * Copyright 2012 Janis Skarnelis - janis@fancyapps.com
@@ -372,14 +372,14 @@
             e = v(e);
             u.direction = t || i.direction[e >= i.index ? "next" : "prev"];
             u.router = n || "jumpto";
-            if (i.loop) {            	
+            if (i.loop) {
                 if (e < 0) {
                     e = i.group.length + e % i.group.length
                 }
                 e = e % i.group.length
             }
             if (i.group[e] !== r) {
-                u.cancel();                
+                u.cancel();
                 u._start(e)
             }
         },
@@ -561,13 +561,13 @@
         isSWF: function(e) {
             return h(e) && e.match(/\.(swf)((\?|#).*)?$/i)
         },
-        _start: function(e) {        
+        _start: function(e) {
             var t = {},
                 r, i, s, o, a;
-           
+
 
             //HACK FROM THEMEPUNCH
-	            e = v(e);                        
+	            e = v(e);
 	            r = u.group[e] || null;
                 var r_id = jQuery(r.element[0].parentNode).closest('.tp-esg-item');
                 r_id = r_id.length>0 && r_id!==undefined ? r_id.attr('id') : "rnoid_0";
@@ -579,23 +579,23 @@
 					var exists = false,
                         el_id = jQuery(el.element[0].parentNode).closest('.tp-esg-item');
                     el_id = el_id.length>0 && el_id!==undefined ? el_id.attr('id') : "noid_0";
-                    
+
 					jQuery.each(_tpgroup,function(_j,cel) {
                         var cel_id = jQuery(cel.element[0].parentNode).closest('.tp-esg-item');
                         cel_id = cel_id.length>0 && cel_id!==undefined ? cel_id.attr('id') : "cel_noid_0";
-						if (exists === false && cel.href === el.href && cel_id === el_id) exists = true;										
+						if (exists === false && cel.href === el.href && cel_id === el_id) exists = true;
 					})
 					if (!exists) {
-						_tpgroup.push(el);				
+						_tpgroup.push(el);
 						if (el.href===r.href && r_id === el_id)
-							e = _tpgroup.length-1;	
+							e = _tpgroup.length-1;
 					}
-				});			
-				u.group = _tpgroup;						
-			// END OF HACK FROM THEMEPUNCH            
-			e = v(e);                        
+				});
+				u.group = _tpgroup;
+			// END OF HACK FROM THEMEPUNCH
+			e = v(e);
             r = u.group[e] || null;
-           
+
             if (!r) {
                 return false
             }
@@ -634,12 +634,12 @@
             if (t.height === "auto") {
                 t.autoHeight = true
             }
-            
 
-			t.group = u.group;						
-			
 
-            
+			t.group = u.group;
+
+
+
             t.index = e;
             u.coming = t;
             if (false === u.trigger("beforeLoad")) {
@@ -885,7 +885,7 @@
                 x = v(E[0] + E[2]),
                 T, N, C, k, L, A, O, M, _, D, P, H, B, j, I;
 
-            
+
             s.add(o).add(a).width("auto").height("auto").removeClass("esgbox-tmp");
             T = v(o.outerWidth(true) - o.width());
             N = v(o.outerHeight(true) - o.height());
@@ -909,7 +909,7 @@
                         }
                     } catch (q) {}
                 }
-            } else 
+            } else
             if (f.type === "html5") {
                 L = l;
                 A = c;
@@ -933,7 +933,7 @@
             }
             l = v(L);
             c = v(A);
-            
+
 
             _ = L / A;
             h = v(p(h) ? v(h, "w") - C : h);
@@ -948,7 +948,7 @@
             }
             H = e.w - S;
             B = e.h - x;
-            
+
             if (f.aspectRatio) {
                 if (l > g) {
                     l = g;
@@ -976,7 +976,7 @@
             }
             if (f.fitToView) {
                 a.width(l).height(c);
-                
+
                 s.width(l + T);
                 D = s.width();
                 P = s.height();
@@ -1360,7 +1360,7 @@
             }
         },
         beforeShow: function(e, t) {
-            var r, i;            
+            var r, i;
             if (t.locked) {
                 if (this.margin !== false) {
                     n("*").filter(function() {
@@ -1710,7 +1710,7 @@
                 o = t.height,
                 u = t.source;
             i = "";
-            
+
             for (var a = 0; a < n.group.length; a++) {
                 i += '<li><a style="width:' + s + "px;height:" + o + 'px;" href="javascript:jQuery.esgbox.jumpto(' + a + ');"></a></li>'
             }
@@ -1751,7 +1751,7 @@
                 }).attr("src", i)
             });
 
-            this.width = this.list.children().eq(0).outerWidth(true);            
+            this.width = this.list.children().eq(0).outerWidth(true);
             this.list.width(this.width * (n.group.length + 1)).css("left", Math.floor(e(window).width() * .5 - (n.index * this.width + this.width * .5)))
         },
         beforeLoad: function(e, t) {
@@ -1762,20 +1762,20 @@
             t.margin[e.position === "top" ? 0 : 2] += e.height + 15
         },
         afterShow: function(e, t) {
-        	
+
             if (this.list) {
                 this.onUpdate(e, t)
             } else {
                 this.init(e, t)
-            }            
+            }
             this.list.children().removeClass("active").eq(t.index).addClass("active")
         },
         onUpdate: function(t, n) {
             if (this.list) {
-                this.width = this.list.children().eq(0).outerWidth(true);                            
+                this.width = this.list.children().eq(0).outerWidth(true);
                 punchgs.TweenLite.set(this.list,{width:(this.width * (n.group.length + 1))})
                 punchgs.TweenLite.to(this.list,0.5,{ease:punchgs.Power3.easeInOut,left:Math.floor(e(window).width() * .5 - (n.index * this.width + this.width * .5))});
-                
+
             }
         },
         beforeClose: function() {
@@ -1796,5 +1796,5 @@ jQuery('body').on('click', '.esgbox', function() {
     $this.addClass('esgbox.iframe').attr('href', $this.attr('href') + '?autoPlay=true').click();
     return false;
   }
-  
+
 });
