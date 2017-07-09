@@ -6,8 +6,7 @@
 		<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 		<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
 		<link rel='dns-prefetch' href='https://s.w.org/' />
-		<link rel="alternate" type="application/rss+xml" title="HairSalon &raquo; Feed" href="feed/index.html" />
-		<link rel="alternate" type="application/rss+xml" title="HairSalon &raquo; Comments Feed" href="comments/feed/index.html" />
+
 		<script type="text/javascript">
 		window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/heirian.github.io\/corposbells\/assets\/js\/wp-emoji-release.min.js"}};
 		!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -62,8 +61,7 @@
 
 		/* ]]> */
 		</script>
-		<script type='text/javascript' src='assets/js/add-to-cart.min.js'></script>
-		<script type='text/javascript' src='assets/js/woocommerce-add-to-cart.js'></script>
+
 		<link rel='https://api.w.org/' href='wp-json/index.html' />
 		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php?rsd" />
 		<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="assets/wlwmanifest.xml" />
@@ -72,77 +70,14 @@
 		<link rel='shortlink' href='index.html' />
 		<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed?url=http%253A%252F%252Fhairsalon.thememove.com%252F" />
 		<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed?url=http%253A%252F%252Fhairsalon.thememove.com%252F&amp;format=xml" />
-		<script type="text/javascript">
-		var ajaxRevslider;
 
-		jQuery(document).ready(function() {
-			// CUSTOM AJAX CONTENT LOADING FUNCTION
-			ajaxRevslider = function(obj) {
-
-				// obj.type : Post Type
-				// obj.id : ID of Content to Load
-				// obj.aspectratio : The Aspect Ratio of the Container / Media
-				// obj.selector : The Container Selector where the Content of Ajax will be injected. It is done via the Essential Grid on Return of Content
-
-				var content = "";
-
-				data = {};
-
-				data.action = 'revslider_ajax_call_front';
-				data.client_action = 'get_slider_html';
-				data.token = 'a754d4c4a0';
-				data.type = obj.type;
-				data.id = obj.id;
-				data.aspectratio = obj.aspectratio;
-
-				// SYNC AJAX REQUEST
-				jQuery.ajax({
-					type:"post",
-					url:"https://hairsalon.thememove.com/wp-admin/admin-ajax.php",
-					dataType: 'json',
-					data:data,
-					async:false,
-					success: function(ret, textStatus, XMLHttpRequest) {
-						if(ret.success == true)
-						content = ret.data;
-					},
-					error: function(e) {
-						console.log(e);
-					}
-				});
-
-				// FIRST RETURN THE CONTENT WHEN IT IS LOADED !!
-				return content;
-			};
-
-			// CUSTOM AJAX FUNCTION TO REMOVE THE SLIDER
-			var ajaxRemoveRevslider = function(obj) {
-				return jQuery(obj.selector+" .rev_slider").revkill();
-			};
-
-			// EXTEND THE AJAX CONTENT LOADING TYPES WITH TYPE AND FUNCTION
-			var extendessential = setInterval(function() {
-				if (jQuery.fn.tpessential != undefined) {
-					clearInterval(extendessential);
-					if(typeof(jQuery.fn.tpessential.defaults) !== 'undefined') {
-						jQuery.fn.tpessential.defaults.ajaxTypes.push({type:"revslider",func:ajaxRevslider,killfunc:ajaxRemoveRevslider,openAnimationSpeed:0.3});
-						// type:  Name of the Post to load via Ajax into the Essential Grid Ajax Container
-						// func: the Function Name which is Called once the Item with the Post Type has been clicked
-						// killfunc: function to kill in case the Ajax Window going to be removed (before Remove function !
-						// openAnimationSpeed: how quick the Ajax Content window should be animated (default is 0.3)
-					}
-				}
-			},30);
-		});
-		</script>
 		<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
 		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-		<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
 		<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://hairsalon.thememove.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.5 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-		<link rel="icon" href="assets/images/uploads/2015/10/cropped-icon_512-32x32.png" sizes="32x32" />
-		<link rel="icon" href="assets/images/uploads/2015/10/cropped-icon_512-192x192.png" sizes="192x192" />
-		<link rel="apple-touch-icon-precomposed" href="assets/images/uploads/2015/10/cropped-icon_512-180x180.png" />
-		<meta name="msapplication-TileImage" content="https://hairsalon.thememove.com/wp-content/uploads/2015/10/cropped-icon_512-270x270.png" />
+		<link rel="icon" href="assets/images/cropped-icon_512-32x32.png" sizes="32x32" />
+		<link rel="icon" href="assets/images/cropped-icon_512-192x192.png" sizes="192x192" />
+		<link rel="apple-touch-icon-precomposed" href="assets/images/cropped-icon_512-180x180.png" />
+		<meta name="msapplication-TileImage" content="assets/images/cropped-icon_512-270x270.png" />
 		<script type="text/javascript">function setREVStartSize(e){
 			try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
 				if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
