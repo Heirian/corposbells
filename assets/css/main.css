@@ -5128,3 +5128,14 @@ Max width
 .custom-30-bottom-px-space-vertical {
   margin-bottom: 30px;
 }
+
+.margin-container-index {
+  margin: auto;
+  width: 80%;
+  height: 2px;
+  border-bottom: 3px solid #FF9326;
+}
+
+.text-custom-center {
+  text-align: center;
+}
