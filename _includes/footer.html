@@ -5,7 +5,7 @@
 
         <aside id="text-2" class="widget widget_text">
           <h3 class="widget-title">
-            <span>About us</span>
+            <span>Sobre nós</span>
           </h3>
           <div class="textwidget">
             <p>Hair Salon was founded in 2008 with the mission of providing hair care services with a professional but casual atmosphere.</p>
@@ -16,7 +16,7 @@
           <div class="social-menu">
             <ul id="social-menu" class="menu">
               <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14">
-                <a href="https://facebook.com">
+                <a href="{{ site.facebook }}">
                   Facebook
                 </a>
               </li>
@@ -28,14 +28,14 @@
       <div class="col-md-3">
         <aside id="text-8" class="widget widget_text">
           <h3 class="widget-title">
-            <span>Keep in touch</span>
+            <span>Entre em contato</span>
           </h3>
           <div class="textwidget">
             <div class="keepintouch">
-              <p><i class="pe-7s-call"></i>  &nbsp; (61 2) 9251 5600</p>
-              <p><i class="fa fa-whatsapp"></i>  &nbsp; (61 2) 9200 5700</p>
-              <p><i class="pe-7s-mail-open-file"></i>  &nbsp; <a href="mailto:info@thememove.com">info@thememove.com</a></p>
-              <p><i class="pe-7s-map-2"></i>  &nbsp; no.200 Joseph, Canada</p>
+              <p><i class="pe-7s-call"></i>  &nbsp; <a href="tel:{{ site.phone }}">{{ site.phone }}</a></p>
+              <p><i class="fa fa-whatsapp"></i>  &nbsp; <a href="tel:{{ site.cellphone }}">{{ site.cellphone }}</a></p>
+              <p><i class="pe-7s-mail-open-file"></i>  &nbsp; <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+              <p><i class="pe-7s-map-2"></i>  &nbsp; <a href="contato">{{ site.address }}</a></p>
             </div>
           </div>
         </aside>
@@ -61,7 +61,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="copyright">
     <div class="container center">
       © 2017 Corpos Bells. Todos os direitos reservados
