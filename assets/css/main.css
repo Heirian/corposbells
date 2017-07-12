@@ -1960,9 +1960,9 @@ Home
 .home_services img {
   transition: all 0.2s ease-in-out;
 }
-.home_services img:hover {
+/*.home_services img:hover {
   margin-left: 10px;
-}
+}*/
 .tm_hairsalon_btn_1 a {
   padding: 0 !important;
   background: none !important;
@@ -2051,7 +2051,7 @@ Home
   }
   #home_services .vc_row .wpb_column {
     margin-top: 15px;
-    background: url("https://dchairsalon.com/wp-content/uploads/2015/09/bg2.jpg") top right;
+    /*background: url("/assets/images/bg2.png") top right;*/
   }
 }
 /*--------------------------------------------
@@ -2812,6 +2812,9 @@ Page
 }
 .page .about_icons .about_icon img:hover {
   background: #FF9326;
+}
+.page .about_icons {
+  background: black;
 }
 .page .wpcf7 {
   margin-top: 20px;
