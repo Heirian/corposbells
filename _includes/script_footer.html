@@ -1,93 +1,96 @@
 <div class="clear">
 </div>
+
 <script type="text/javascript">
-function eggbfc(winw,resultoption) {
-	var lasttop = winw,
-	lastbottom = 0,
-	smallest =9999,
-	largest = 0,
-	samount = 0,
-	lamoung = 0,
-	lastamount = 0,
-	resultid = 0,
-	resultidb = 0,
-	responsiveEntries = [
-		{ width:1400,amount:3,mmheight:0},
-		{ width:1170,amount:3,mmheight:0},
-		{ width:1024,amount:3,mmheight:0},
-		{ width:960,amount:3,mmheight:0},
-		{ width:778,amount:3,mmheight:0},
-		{ width:640,amount:3,mmheight:0},
-		{ width:480,amount:1,mmheight:0}
-	];
-	if (responsiveEntries!=undefined && responsiveEntries.length>0)
-	jQuery.each(responsiveEntries, function(index,obj) {
-		var curw = obj.width != undefined ? obj.width : 0,
-		cura = obj.amount != undefined ? obj.amount : 0;
-		if (smallest>curw) {
-			smallest = curw;
-			samount = cura;
-			resultidb = index;
+	function eggbfc(winw,resultoption) {
+		var lasttop = winw,
+		lastbottom = 0,
+		smallest =9999,
+		largest = 0,
+		samount = 0,
+		lamoung = 0,
+		lastamount = 0,
+		resultid = 0,
+		resultidb = 0,
+		responsiveEntries = [
+			{ width:1400,amount:3,mmheight:0},
+			{ width:1170,amount:3,mmheight:0},
+			{ width:1024,amount:3,mmheight:0},
+			{ width:960,amount:3,mmheight:0},
+			{ width:778,amount:3,mmheight:0},
+			{ width:640,amount:3,mmheight:0},
+			{ width:480,amount:1,mmheight:0}
+		];
+		if (responsiveEntries!=undefined && responsiveEntries.length>0)
+		jQuery.each(responsiveEntries, function(index,obj) {
+			var curw = obj.width != undefined ? obj.width : 0,
+			cura = obj.amount != undefined ? obj.amount : 0;
+			if (smallest>curw) {
+				smallest = curw;
+				samount = cura;
+				resultidb = index;
+			}
+			if (largest<curw) {
+				largest = curw;
+				lamount = cura;
+			}
+			if (curw>lastbottom && curw<=lasttop) {
+				lastbottom = curw;
+				lastamount = cura;
+				resultid = index;
+			}
+		});
+		if (smallest>winw) {
+			lastamount = samount;
+			resultid = resultidb;
 		}
-		if (largest<curw) {
-			largest = curw;
-			lamount = cura;
-		}
-		if (curw>lastbottom && curw<=lasttop) {
-			lastbottom = curw;
-			lastamount = cura;
-			resultid = index;
-		}
-	});
-	if (smallest>winw) {
-		lastamount = samount;
-		resultid = resultidb;
+		var obj = new Object;
+		obj.index = resultid;
+		obj.column = lastamount;
+		if (resultoption=="id")
+		return obj;
+		else
+		return lastamount;
 	}
-	var obj = new Object;
-	obj.index = resultid;
-	obj.column = lastamount;
-	if (resultoption=="id")
-	return obj;
-	else
-	return lastamount;
-}
-if ("masonry"=="even") {
-	var coh=0,
-	container = jQuery("#esg-grid-17-1");
-	var	cwidth = container.width(),
-	ar = "4:3",
-	gbfc = eggbfc(jQuery(window).width(),"id"),
-	row = 3;
-	ar = ar.split(":");
-	aratio=parseInt(ar[0],0) / parseInt(ar[1],0);
-	coh = cwidth / aratio;
-	coh = coh/gbfc.column*row;
-	var ul = container.find("ul").first();
-	ul.css({display:"block",height:coh+"px"});
-}
-var essapi_17;
+	if ("masonry"=="even") {
+		var coh=0,
+		container = jQuery("#esg-grid-17-1");
+		var	cwidth = container.width(),
+		ar = "4:3",
+		gbfc = eggbfc(jQuery(window).width(),"id"),
+		row = 3;
+		ar = ar.split(":");
+		aratio=parseInt(ar[0],0) / parseInt(ar[1],0);
+		coh = cwidth / aratio;
+		coh = coh/gbfc.column*row;
+		var ul = container.find("ul").first();
+		ul.css({display:"block",height:coh+"px"});
+	}
+	var essapi_17;
 
 </script>
 
 <script>
-jQuery( document ).ready( function() {
-	jQuery( ".site-header" ).headroom(
-		{
-			offset: 86
-		}
-	);
-} );
+	jQuery( document ).ready( function() {
+		jQuery( ".site-header" ).headroom(
+			{
+				offset: 86
+			}
+		);
+	} );
 </script>
+
 <script type="text/javascript">
-function revslider_showDoubleJqueryError(sliderID) {
-	var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";
-	errorMessage += "<br> This includes make eliminates the revolution slider libraries, and make it not work.";
-	errorMessage += "<br><br> To fix it you can:<br>&nbsp;&nbsp;&nbsp; 1. In the Slider Settings -> Troubleshooting set option:  <strong><b>Put JS Includes To Body</b></strong> option to true.";
-	errorMessage += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
-	errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
-	jQuery(sliderID).show().html(errorMessage);
+	function revslider_showDoubleJqueryError(sliderID) {
+		var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";
+		errorMessage += "<br> This includes make eliminates the revolution slider libraries, and make it not work.";
+		errorMessage += "<br><br> To fix it you can:<br>&nbsp;&nbsp;&nbsp; 1. In the Slider Settings -> Troubleshooting set option:  <strong><b>Put JS Includes To Body</b></strong> option to true.";
+		errorMessage += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
+		errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
+		jQuery(sliderID).show().html(errorMessage);
 }
 </script>
+
 <link rel='stylesheet' id='vc_google_fonts_playfair_displayregularitalic700700italic900900italic-css'  href='https://fonts.googleapis.com/css?family=Playfair+Display%3Aregular%2Citalic%2C700%2C700italic%2C900%2C900italic&amp;ver=4.7.5' type='text/css' media='all' />
 <link rel='stylesheet' id='vc_google_fonts_abril_fatfaceregular-css'  href='https://fonts.googleapis.com/css?family=Abril+Fatface%3Aregular&amp;ver=4.7.5' type='text/css' media='all' />
 <link rel='stylesheet' id='themepunchboxextcss-css'  href='assets/css/lightbox.css' type='text/css' media='all' />
