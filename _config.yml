@@ -1,5 +1,5 @@
 
-title: Corpos Bells
+title: Corpus Bells
 
 description: > #
 baseurl: "" # t
@@ -8,7 +8,7 @@ address: Rua C-61 • Quadra 133 • Lote 10 • Setor Sudoeste
 phone: (62) 3287 - 4164
 cellphone: (62) 98192 - 5310
 email: corpusbells@hotmail.com
-facebook: https://www.facebook.com/magda.bells
+facebook: 
 
 # Build settings
 markdown: kramdown
