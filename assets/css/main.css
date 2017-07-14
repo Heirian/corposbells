@@ -5145,3 +5145,7 @@ Max width
   width: 90px;
 
 }
+
+.text-justify {
+  text-align: justify;
+}
