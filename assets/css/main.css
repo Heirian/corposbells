@@ -2799,7 +2799,7 @@ Page
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  
+
 }
 .page .services_icons .services_icon img:hover {
   background: #FF9326;
@@ -5148,4 +5148,8 @@ Max width
 
 .text-justify {
   text-align: justify;
+}
+
+.float-texts {
+  float: left;
 }
