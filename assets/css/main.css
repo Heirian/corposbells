@@ -4404,6 +4404,7 @@ Mobile Menu
 .mobile-menu > ul li a,
 .snap-drawer-left .menu > ul li a {
   display: block;
+  color: black;
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #EEEEEE;
